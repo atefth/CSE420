@@ -1,6 +1,6 @@
-public class Main {
+public class Driver {
 	
-	public Main(){
+	public Driver(){
 		
 	}
 

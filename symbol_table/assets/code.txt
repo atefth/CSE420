@@ -1,0 +1,14 @@
+class basic
+	int x = 25
+	int y = 5
+	int z = x/y
+
+	void author (String name)
+		print(name)
+
+	int divide (int a, int b)
+		int c = a/b
+		return c
+
+	static void main ()
+		int 
