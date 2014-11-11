@@ -7,8 +7,9 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import java.io.*;
-import java_cup.runtime.Symbol;
-
+import java.util.*;
+// import java_cup.runtime.Symbol;
+// import atef.java.symbols;
 
 /**
  * Simple test driver for the java lexer. Just runs it on some
@@ -28,17 +29,55 @@ public class TestLexer {
 
   public static void main(String argv[]) {
 
+    List<String> identifiers = new ArrayList<String>();
+    List<String> integers = new ArrayList<String>();
+    List<String> strings = new ArrayList<String>();
+
     for (int i = 0; i < argv.length; i++) {
       try {
-        System.out.println("Lexing ["+argv[i]+"]");
+        // System.out.println("Lexing ["+argv[i]+"]");
         Scanner scanner = new Scanner(new UnicodeEscapes(new FileReader(argv[i])));
                 
-        Symbol s;
+        JavaSymbol s;
+        String current;
         do {
-          s = scanner.debug_next_token();
-          System.out.println("token: "+s);
+          s = (JavaSymbol)scanner.next_token();
+          current = s.isIdentifier();
+          if (current.length() > 0) {
+            identifiers.add(current);
+          }
+          current = s.isInteger();
+          if (current.length() > 0) {
+            integers.add(current);
+          }
+          current = s.isString();
+          if (current.length() > 0) {
+            strings.add(current);
+          }
+          // System.out.println(s);
         } while (s.sym != sym.EOF);
-        
+
+        System.out.print("Identifiers:");
+        for (int j = identifiers.size() - 1; j > 0 ; j--) {
+          current = identifiers.remove(j);
+          System.out.print(" "+ current +" ");
+        }
+        System.out.println();
+
+        System.out.print("Integers:");
+        for (int j = integers.size() - 1; j > 0 ; j--) {
+          current = integers.remove(j);
+          System.out.print(" "+ current +" ");
+        }
+        System.out.println();
+
+        System.out.print("Strings:");
+        for (int j = strings.size() - 1; j > 0 ; j--) {
+          current = strings.remove(j);
+          System.out.print(" "+ current +" ");
+        }
+        System.out.println();
+
         System.out.println("No errors.");
       }
       catch (Exception e) {
