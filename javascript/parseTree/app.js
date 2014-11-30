@@ -38,6 +38,12 @@ var INPUT = [
 var canvas = document.getElementById("stage");
 var context = canvas.getContext("2d");
 
+//Button
+var button = document.getElementById("restart");
+button.addEventListener("click", function (argument) {
+	construct();
+});
+
 //Grid Datastructure
 var grid = {
 	input_length: null,
@@ -190,9 +196,14 @@ function construct () {
 }
 
 function drawInit () {
+	clear();
 	drawTable();
 	drawStack();
 	draw();
+}
+
+function clear () {
+	context.clearRect ( 0 , 0 , canvas.width, canvas.height );
 }
 
 function drawTable () {
