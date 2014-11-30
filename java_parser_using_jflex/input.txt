@@ -1,0 +1,15 @@
+public class Index {
+	static int java = 5;
+	private boolean tryJava = false;
+	public String javaDevelopersWearGlasses(){
+		return "Because they can't c#";
+	}
+	public static void main(String[] args) {
+		int seeSharp = 5;
+		if (java > seeSharp) {
+			seeSharp++;
+		}
+		int javaProgrammersDoNotSeeSharp = java + seeSharp;
+		System.out.println("It Works! " + javaProgrammersDoNotSeeSharp);
+	}
+}
