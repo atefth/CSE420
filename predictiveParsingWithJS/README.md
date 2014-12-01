@@ -1,6 +1,11 @@
+PREDICTIVE PARSING
+========================
+
 This document describes the data structures involved and their implementation
+=============================================================================
 
     Grid
+    =========================================================================
         The grid is essentially a 2D array holding the production laws
         It is indexed by Input and Grammar symbols
 
@@ -23,7 +28,10 @@ This document describes the data structures involved and their implementation
         - Input symbol by using array[i][j][0]
         - Grammar symbol by using array[i][j][1]
         - The respective PRODUCTION by using array[i][j][2]
+    ===========================================================================
 
     Stack
+    ===========================================================================
         The stack is a very basic FIFO data structure
         If you don't know what is, I recommend you go to school
+    ===========================================================================
