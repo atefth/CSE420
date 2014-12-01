@@ -28,6 +28,23 @@ This document describes the data structures involved and their implementation
         - Input symbol by using array[i][j][0]
         - Grammar symbol by using array[i][j][1]
         - The respective PRODUCTION by using array[i][j][2]
+
+        VARIABLES
+            inputLength : length of the input array
+            grammarLength : length of the grammar array
+            _grid : The 2D array
+
+        FUNCTIONS
+            construct()
+                loops through the input and grammar arrays and creates empty key value pairs
+
+            set(input, grammar, production)
+                sets the production at the specific key in _grid where 
+                the input and grammar matches the 0th and the 1st index
+
+            get(input, grammar)
+                gets the production (if any) at the specific key in _grid where 
+                the input and grammar matches the 0th and the 1st index
     ===========================================================================
 
     Stack
