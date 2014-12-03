@@ -34,6 +34,8 @@ var INPUT = [
 	"$"
 ];
 
+var looping = true;
+
 //Context variables
 var canvas = document.getElementById("stage");
 var context = canvas.getContext("2d");
@@ -42,6 +44,12 @@ var context = canvas.getContext("2d");
 var button = document.getElementById("restart");
 button.addEventListener("click", function (argument) {
 	construct();
+});
+
+//Toggle Button
+var button = document.getElementById("toggle");
+button.addEventListener("click", function (argument) {
+	looping = !looping;
 });
 
 //Grid Datastructure
@@ -245,9 +253,11 @@ function draw () {
 }
 
 function parse () {
-	if(stack.size > 0){
-		parser.parse();
-		drawStack();
-		draw();
+	if (looping) {
+		if(stack.size > 0){
+			parser.parse();
+			drawStack();
+			draw();
+		}
 	}
 }
